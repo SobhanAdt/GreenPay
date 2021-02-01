@@ -1,0 +1,53 @@
+﻿@model IEnumerable<DataLayer.AboutDescription>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-sm btn-success">افزودن جدید</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="/Images/AboutImages/@item.Image"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit",new {id=item.AboutID})" class="btn btn-sm btn-warning">
+                <i class="glyphicon glyphicon-edit"> </i>
+            </a> 
+            <a href="@Url.Action("Details", new {id = item.AboutID})" class="btn btn-sm btn-primary">
+                <i class="glyphicon glyphicon-eye-open"> </i>
+            </a> 
+            <a href="@Url.Action("Delete", new {id = item.AboutID})" class="btn btn-sm btn-danger">
+                <i class="glyphicon glyphicon-trash"> </i>
+            </a> 
+
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,14 @@
+﻿
+@model IEnumerable<DataLayer.ShowGroupViewModel>
+<div class="widget widget_categories">
+    <h3 class="widget-title">صفحات پست</h3>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                <a href="/Group/@item.GroupID/@item.GroupTitle">@item.GroupTitle</a>
+            </li>
+        }
+       
+    </ul>
+</div>

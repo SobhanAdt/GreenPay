@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DataLayer.Page>
+@{
+    ViewBag.Title = "نمایش گروه خبری";
+    Layout = "~/Views/Shared/_LayoutNews.cshtml";
+}
+
+<article class="blog-post">
+    @foreach (var item in Model)
+    {
+        <div class="post-style hidden-xs">
+            <div class="post-format">
+                <i class="fa fa-quote-left"></i>
+            </div>
+            <div class="post-time">
+                <span>@item.PageGroup.GroupTitle</span>
+            </div>
+        </div>
+        <div class="post-des">
+            <div class="post-media">
+                <img class="img-responsive" src="/PageImages/@item.ImageName" />
+            </div>
+            <h2 class="post-title"><a href="/News/@item.PageID">@item.Title</a></h2>
+            <div class="post-meta">
+                <span class="post-author">
+                    تاریخ انتشار : @item.CreateDate.ToShamsi()
+                </span>
+                <div class="after-title"></div>
+            </div>
+            <p> @item.ShortDescription </p>
+            <a class="btn readmore" href="/News/@item.PageID">ادامه مطلب</a>
+            <hr>
+        </div>
+    }
+
+</article>

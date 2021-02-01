@@ -1,0 +1,52 @@
+﻿@model IEnumerable<DataLayer.TeamMember>
+
+@{
+    ViewBag.Title = "اعضای هیئت مدیره";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>افزودن</h2>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-sm btn-success"><i>ایجاد عضو جدید</i></a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="/Images/TeamMember/@item.ImageName" class="thumbnail" style="width: 100px;height: 100px"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit",new {id=item.TeamID})" class="btn btn-sm btn-warning">
+                 <i class="glyphicon glyphicon-edit"> </i>
+            </a> 
+            <a href="@Url.Action("Details", new {id = item.TeamID})" class="btn btn-sm btn-primary">
+                <i class="glyphicon glyphicon-eye-open"> </i>
+            </a> 
+            <a href="@Url.Action("Delete", new {id = item.TeamID})" class="btn btn-sm btn-danger">
+                <i class="glyphicon glyphicon-trash"> </i>
+            </a> 
+        </td>
+    </tr>
+}
+
+</table>

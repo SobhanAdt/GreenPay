@@ -1,0 +1,67 @@
+﻿@model DataLayer.Slider
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>نمایش</h2>
+
+<div>
+    <h4>Slider</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageSlider)
+        </dt>
+
+        <dd>
+           <img src="/Images/Slider/@Model.ImageSlider" class="thumbnail" style="width: 500px; height: 200px;"/>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subtitle1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subtitle1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubTitle2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubTitle2)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id = Model.SliderID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

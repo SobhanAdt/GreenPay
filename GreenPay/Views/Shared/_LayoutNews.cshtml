@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+
+    <!-- Bootstrap -->
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet">
+    @*<link href="~/Content/bootstrap-rtl.css" rel="stylesheet" />*@
+    <link href="/Content/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/Content/css/animation.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:800,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
+    <!-- Flex Slider -->
+    <link rel="stylesheet" href="/Content/css/flexslider.css" type="text/css" media="screen" />
+    <link href="/Content/css/style.css" rel="stylesheet">
+
+
+</head>
+<body dir="rtl">
+    <div id="wrapper">
+
+        <!--Strat Topbar-->
+        @Html.Action("MenuBar", "Home")
+        <!--End Topbar-->
+        <!--End Top Wrapper-->
+        <section class="top-wrapper parallax">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6 col-md-6">
+                        <div class="single-title">
+                            <h3>وبلاگ</h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-md-6">
+                        <div class="breadcrumb-container">
+                            <ul class="breadcrumb alignleft">
+                                <li><a href="/">صفحه اصلی</a></li>
+                                <li class="active">@ViewBag.Title</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-wrapper">
+            <div class="single-content">
+                <div class="margin"></div>
+                <section id="blog-list">
+                    <div class="container">
+                        <div class="row">
+                            <div class="sidebar col-md-4 right">
+
+                                @Html.Action("PagePost", "News")
+
+                                @Html.Action("PostFarvrit", "News")
+
+
+                            </div>
+                            <div class="blog-main col-md-8">
+
+                                @RenderBody()
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="margin"></div>
+            </div>
+        </section>
+
+        @Html.Action("Footer", "Home")
+
+        <div class="gototop">
+            Scroll to Top
+        </div><!-- end gototop -->
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/Content/js/jquery-1.9.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/Content/js/bootstrap.min.js"></script>
+    <script src="/Content/js/jquery.unveilEffects.js"></script>
+    <script defer src="/Content/js/jquery.flexslider.js"></script>
+
+    <script type="text/javascript">
+        (function ($) {
+            $(window).load(function () {
+                $('.flexslider').flexslider({
+                    animation: "fade",
+                    start: function (slider) {
+                        $('body').removeClass('loading');
+                    }
+                });
+            });
+        })(jQuery);
+
+    </script>
+    <script src="/Content/js/custom.js"></script>
+    @RenderSection("Scripts", false)
+</body>
+</html>

@@ -1,0 +1,81 @@
+﻿@model IEnumerable<DataLayer.Page>
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+
+
+
+<h2>لیست خبر ها</h2>
+
+
+
+<p>
+    <a class="btn btn-success" href="/Admin/Pages/Create">ایجاد خبر جدید</a>
+
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PageGroup.GroupTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Visit)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.ShowInSlider)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tags)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="/PageImages/@item.ImageName" class="thumbnail" style="max-width: 120px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PageGroup.GroupTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Visit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShowInSlider)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tags)
+            </td>
+            <td>
+                <a class="btn btn-sm btn-info" href="/Admin/Pages/Details/@item.PageID"><i class="glyphicon glyphicon-zoom-in"></i></a>
+
+                <a class="btn btn-sm btn-warning" href="/Admin/Pages/Edit/@item.PageID"> <i class="glyphicon glyphicon-edit"></i></a>
+
+                <a class="btn btn-sm btn-danger" href="/Admin/Pages/Delete/@item.PageID"> <i class="glyphicon glyphicon-trash"></i> </a>
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DataLayer.Services>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<p>
+    <a class="btn btn-success" href="/Admin/Services/Create">ایجاد خدمات جدید</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ServicTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServicDescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServicTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServicDescription)
+        </td>
+        <td>
+            <a class="btn btn-sm btn-info" href="/Admin/Services/Details/@item.ServicesID"><i class="glyphicon glyphicon-zoom-in"></i></a>
+
+            <a class="btn btn-sm btn-warning" href="/Admin/Services/Edit/@item.ServicesID"> <i class="glyphicon glyphicon-edit"></i></a>
+
+            <a class="btn btn-sm btn-danger" href="/Admin/Services/Delete/@item.ServicesID"> <i class="glyphicon glyphicon-trash"></i> </a>
+        </td>
+    </tr>
+}
+
+</table>

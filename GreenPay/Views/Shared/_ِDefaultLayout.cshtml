@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+
+    <!-- Bootstrap -->
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/Content/css/animation.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:800,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
+    <!-- Flex Slider -->
+    <link rel="stylesheet" href="/Content/css/flexslider.css" type="text/css" media="screen" />
+    <link href="/Content/css/style.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond./Content/js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body dir="rtl">
+    <div id="wrapper">
+        @Html.Action("MenuBar", "Home")
+
+        <!--End Header-Wrapper-->
+
+        @Html.Action("SliderAtHome", "Home")
+
+        @Html.Action("WhatWork", "Home")
+        <div class="margin"></div>
+
+        @Html.Action("ActiveWork", "Home")
+
+        @Html.Action("HamKaranMa", "Home")
+
+        @Html.Action("Footer", "Home")
+
+        <div class="gototop">
+            Scroll to Top
+        </div><!-- end gototop -->
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/Content/js/jquery-1.9.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/Content/js/bootstrap.min.js"></script>
+    <script src="/Content/js/jquery.unveilEffects.js"></script>
+    <script defer src="/Content/js/jquery.flexslider.js"></script>
+
+    <script type="text/javascript">
+        (function ($) {
+            $(window).load(function () {
+                $('.flexslider').flexslider({
+                    animation: "fade",
+                    start: function (slider) {
+                        $('body').removeClass('loading');
+                    }
+                });
+            });
+        })(jQuery);
+
+    </script>
+    <script src="/Content/js/custom.js"></script>
+</body>
+</html>
+@RenderBody()

@@ -1,0 +1,19 @@
+﻿
+@model IEnumerable<DataLayer.Page>
+
+<div class="widget">
+    <h3 class="widget-title">پست های محبوب</h3>
+    <ul class="popular">
+        @foreach (var item in Model)
+        {
+            <li class="overflow">
+                <a class="thumb pull-right" href="#"><img width="85" src="/PageImages/@item.ImageName" /></a>
+                <div class="post-des">
+                    <h2><a href="/News/@item.PageID"> @item.Title</a></h2>
+                    <p><small> تاریخ انتشار : @item.CreateDate.ToShamsi() </small></p>
+                </div>
+            </li>
+        }
+           
+    </ul>
+</div>

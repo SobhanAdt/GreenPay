@@ -1,0 +1,73 @@
+﻿@model DataLayer.Slider
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>آیا از پاک کردن این اسلایدر اطمینان دارید؟</h3>
+<div>
+    <h4>Slider</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageSlider)
+        </dt>
+
+        <dd>
+            <img src="/Images/Slider/@Model.ImageSlider" class="thumbnail" style="width: 500px; height: 200px;"/>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subtitle1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subtitle1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubTitle2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubTitle2)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-danger" /> |
+            @Html.ActionLink("بازگشت", "Index")
+        </div>
+    }
+</div>

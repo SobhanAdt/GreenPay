@@ -1,0 +1,70 @@
+﻿@model DataLayer.Page
+
+@{
+    ViewBag.Title = "نمایش خبر";
+    Layout = "~/Views/Shared/_LayoutNews.cshtml";
+}
+
+<div class="post-des">
+    <div class="post-media">
+        <div class="flexslider">
+            <ul class="slides">
+                <li class="" style="max-width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1; transition-property: all; transition-duration: 0s; transition-timing-function: ease;">
+                    <img class="img-responsive" style="max-width: 100%" src="/PageImages/@Model.ImageName" draggable="false">
+                </li>
+            </ul>
+            <ol class="flex-control-nav flex-control-paging">
+                <li>
+                    <a class="">1</a>
+                </li>
+                <li>
+                    <a class="flex-active">2</a>
+                </li>
+                <li>
+                    <a class="">3</a>
+                </li>
+            </ol>
+            <ul class="flex-direction-nav">
+                <li>
+                    <a class="flex-prev" href="#">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="flex-next" href="#">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <h2 class="post-title">@Model.Title</h2>
+    <div class="post-meta">
+        <span class="post-author"> تاریخ انتشار خبر : @Model.CreateDate.ToShamsi()</span>
+        <div class="after-title"></div>
+    </div>
+    <p>@Model.ShortDescription</p>
+    <p> </p>
+
+    @*<blockquote>
+            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+            <small>کسی که مشهور در <cite title="Source Title">عنوان منبع</cite></small>
+        </blockquote>*@
+
+    <p> @Html.Raw(Model.Text) </p>
+    <hr>
+
+</div>
+<aside id="tag_cloud-2" class="sidepanel widget widget_tag_cloud">
+    <h3 class="widget-title">برچسب ها</h3>
+    <div class="tagcloud">
+        @foreach (var item in Model.Tags.Split(','))
+        {
+            <a href="/Search/IndexSearch/?q=@item" class="tag-link-3" title="1 topic">@item</a>
+        }
+
+    </div>
+
+</aside>
+

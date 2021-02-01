@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DataLayer.Activity>
+
+
+<section class="recent-works bgcolor aligncenter">
+    <div class="container">
+        <div class="section-title" data-effect="helix">
+            <h2>برخی از فعالیت های ما</h2>
+            <p>
+                گزینه هایی از فعالیت شرکت ما
+            </p>
+            <div class="title_border"></div>
+        </div>
+        <div class="works">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="project-item">
+                            <div class="img-wrap">
+                                <img src="/Images/Activity/@item.ActiveImage" />
+                                <br />
+                                <p>@item.ActiveTitle</p>
+                                <div class="hover-box">
+                                    <i class="fa fa-align-center"></i>
+                                    <div class="p-caption">
+                                        <h5>@item.ActiveTitle</h5>
+                                        <small></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="margin"></div>
+
+    </div>
+</section>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DataLayer.AboutDescription>
+
+
+<section class="content-wrapper">
+    <div class="single-content">
+        <div class="margin"></div>
+        <section class="container">
+            <div class="big-message aligncenter">
+                <h2 class="color_light">درباره ما </h2>
+            </div>
+            <div class="timeline row">
+                <div class="timeline-col"></div>
+                <div class="year aligncenter">
+                    <h5 class="color_light"></h5>
+                </div>
+                @foreach (var item in Model)
+                {
+                    <div class=" col-md-6" @*data-effect="slide-right*@>
+                        <article>
+                            <div class="post-media">
+
+                                <div class="img-wrap">
+                                    <img class="img-responsive"  src="/Images/AboutImages/@item.Image"/>
+                                </div>
+                            </div>
+                            <h5><a href="single.html">@item.Title</a></h5>
+                            <h6>
+                                @item.Description
+                            </h6>
+                        </article>
+                    </div>
+                }
+              
+
+            </div>
+        </section>
+    </div>
+
+</section>

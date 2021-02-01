@@ -1,0 +1,17 @@
+﻿@model IEnumerable<DataLayer.Hamkaran>
+
+<section class="our-clients">
+    <div class="container">
+        <div class="section-title aligncenter" data-effect="helix">
+            <h2>مشتریان ما</h2>
+            <div class="title_border"></div>
+        </div>
+        <ul class="inline-list clients aligncenter">
+            @foreach (var item in Model)
+            {
+                <li><a class="thumbnails" href="@item.WebSite"><img src="/Images/ImageHamkar/@item.ImageHamkaran" alt="@item.Name" title="@item.Name" data-effect="pop" /></a></li>
+
+            }
+        </ul>
+    </div>
+</section>

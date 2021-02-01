@@ -1,0 +1,54 @@
+﻿@model IEnumerable<DataLayer.Slider>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a class="btn btn-success" href="/Admin/Sliders/Create">ایجاد اسلایدر جدید</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageSlider)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subtitle1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubTitle2)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="/Images/Slider/@item.ImageSlider " class="thumbnail" style="width: 100px; height: 100px;">
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subtitle1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubTitle2)
+        </td>
+        <td>
+            <a class="btn btn-sm btn-info" href="/Admin/Sliders/Details/@item.SliderID"><i class="glyphicon glyphicon-zoom-in"></i></a>
+
+            <a class="btn btn-sm btn-warning" href="/Admin/Sliders/Edit/@item.SliderID"> <i class="glyphicon glyphicon-edit"></i></a>
+
+            <a class="btn btn-sm btn-danger" href="/Admin/Sliders/Delete/@item.SliderID"> <i class="glyphicon glyphicon-trash"></i> </a>
+        </td>
+    </tr>
+}
+
+</table>

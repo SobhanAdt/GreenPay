@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DataLayer.Hamkaran>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a class="btn btn-success" href="/Admin/Hamkarans/Create"> ایجاد همکار جدید </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageHamkaran)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WebSite)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        <img src="/Images/ImageHamkar/@item.ImageHamkaran" class="thumbnail" style="max-width: 100px"/>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.WebSite)
+    </td>
+
+    <td>
+        <a class="btn btn-sm btn-info" href="/Admin/Hamkarans/Details/@item.ID"><i class="glyphicon glyphicon-zoom-in"></i></a>
+
+        <a class="btn btn-sm btn-warning" href="/Admin/Hamkarans/Edit/@item.ID"> <i class="glyphicon glyphicon-edit"></i></a>
+
+        <a class="btn btn-sm btn-danger" href="/Admin/Hamkarans/Delete/@item.ID"> <i class="glyphicon glyphicon-trash"></i> </a>
+    </td>
+</tr>
+}
+
+</table>

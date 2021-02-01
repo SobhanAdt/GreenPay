@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DataLayer.PageGroup>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>فهرست خبر ها</h2>
+
+<p>
+   
+    <a href="/Admin/PageGroups/Create" class="btn btn-success">ایجاد گروه خبری جدید</a>
+   
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupTitle)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupTitle)
+            </td>
+            <td>
+                <a class="btn btn-sm btn-info" href="/Admin/PageGroups/Details/@item.GroupID"><i class="glyphicon glyphicon-zoom-in"></i></a>
+
+                <a href="/Admin/PageGroups/Edit/@item.GroupID" class="btn btn-sm btn-warning"> <i class="glyphicon glyphicon-edit"></i></a>
+
+                <a class="btn btn-sm btn-danger" href="/Admin/PageGroups/Delete/@item.GroupID"> <i class="glyphicon glyphicon-trash"></i> </a>
+            </td>
+        </tr>
+    }
+
+</table>

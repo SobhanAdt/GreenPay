@@ -1,0 +1,81 @@
+﻿
+@model IEnumerable<DataLayer.Page>
+<ul class="breadcrumb">
+    <li class="breadcrumb"><a href="/">خانه</a></li>
+</ul>
+
+<article class="blog-post">
+    @foreach (var item in Model)
+    {
+        <div class="post-style hidden-xs">
+            <div class="post-format">
+                <i class="fa fa-quote-left"></i>
+            </div>
+            <div class="post-time">
+                <span>@item.PageGroup.GroupTitle</span>
+            </div>
+        </div>
+        <div class="post-des">
+            <div class="post-media">
+                <img class="img-responsive" src="/PageImages/@item.ImageName" />
+            </div>
+            <h2 class="post-title"><a href="/News/@item.PageID">@item.Title</a></h2>
+            <div class="post-meta">
+                <span class="post-author">
+                    تاریخ انتشار : @item.CreateDate.ToShamsi()
+                </span>
+                <div class="after-title"></div>
+            </div>
+            <p> @item.ShortDescription </p>
+            <a class="btn readmore" href="/News/@item.PageID">ادامه مطلب</a>
+            <hr>
+        </div>
+    }
+
+</article>
+
+
+@*<ul class="pager">
+        <li class="previous"><a href="#"></a></li>
+        <li class="next"><a href="#"></a></li>
+    </ul>*@
+
+@*<article class="blog-post">
+        <div class="post-style hidden-xs">
+            <div class="post-format">
+                <i class="fa fa-quote-left"></i>
+            </div>
+            <div class="post-time">
+                <span>30 Aug</span>
+            </div>
+        </div>
+        <div class="post-des">
+            <blockquote>چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیستری را برای طراحان رایانه ای و فرهنگ پیشرو در زبان فارسی ایجاد کرد</blockquote>
+            <hr>
+        </div>
+
+    </article>
+    <article class="blog-post">
+        <div class="post-style hidden-xs">
+            <div class="post-format">
+                <i class="fa fa-link"></i>
+            </div>
+            <div class="post-time">
+                <span>30 Aug</span>
+            </div>
+        </div>
+        <div class="post-des">
+
+            <h2 class="post-title"><a href="single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</a></h2>
+            <div class="post-meta">
+                <a href="#">http://google.com</a>
+                <div class="after-title"></div>
+            </div>
+            <p>چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیستری را برای طراحان رایانه ای و فرهنگ پیشرو در زبان فارسی ایجاد کرد</p>
+            <a class="btn readmore">ادامه مطلب</a>
+            <hr>
+
+        </div>
+
+    </article>*@
+

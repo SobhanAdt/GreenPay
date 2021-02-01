@@ -1,0 +1,33 @@
+﻿@model IEnumerable<DataLayer.Slider>
+
+
+<section class="slider">
+    <div class="flexslider">
+        <ul class="slides">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <div style="background-image: url(/Images/Slider/@item.ImageSlider);">
+                        <div class="overlay">
+                            <div class="container">
+                                <div class="row relative">
+                                    <div class="flex_caption1 col-md-5 col-sm-5 effect-fade" style="-webkit-transition: all 0.7s ease-in-out; transition: all 0.7s ease-in-out;">
+                                        <h1>@item.Title</h1>
+                                        <hr/>
+                                        <h2>@item.Subtitle1</h2>
+                                        <h2>@item.SubTitle2</h2>
+                                        <a class="btn btn-lg" href="/Home/Services">نمایش جزئیات بیشتر</a>
+                                    </div>
+                                    @*<div class="flex_caption2 col-md-4 col-sm-5 pull-left hidden-xs effect-slide-bottom" style="-webkit-transition: all 0.7s ease-in-out; transition: all 0.7s ease-in-out;">
+                                        <img src="/Content/GreenPay/Slider-2.jpg" alt="slide" />
+                                    </div>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            }
+        </ul>
+    </div>
+</section>

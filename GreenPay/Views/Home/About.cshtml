@@ -1,0 +1,62 @@
+﻿@model IEnumerable<DataLayer.TeamMember>
+
+@{
+    ViewBag.Title = "درباره ما";
+}
+<section class="top-wrapper parallax">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6">
+                <div class="single-title">
+                    <h3>درباره ما</h3>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6">
+                <div class="breadcrumb-container">
+                    <ul class="breadcrumb alignleft">
+                        <li><a href="/">صفحه اصلی</a></li>
+                        <li class="active">@ViewBag.Title</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <div class="section-title aligncenter" data-effect="helix">
+        <h2>اعضای تیم</h2>
+        <p>
+            معمولا طراحان گرافیک برای صفحه‌آرایی، نخست از متن‌های آزمایشی و بی‌معنی استفاده می‌کنند
+        </p>
+        <div class="title_border"></div>
+    </div>
+    <div class="teams row">
+        @foreach (var item in Model)
+        {
+            <div class=" col-lg-3" data-effect="helix">
+                <div class="team">
+                    <div class="img-wrap">
+                        <img class="img-responsive" src="/Images/TeamMember/@item.ImageName" alt="@item.FullName" />
+                    </div>
+                    <div class="team-des">
+                        <div class="team-head">
+                            <div class="pull-right">
+                                <h5> @item.FullName</h5>
+                                <h6>@item.Title</h6>
+                            </div>
+                            <div class="socials pull-left">
+                                <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+      
+    </div>
+    <hr>
+</div>
+
+@Html.Action("AboutDescription", "Home")
+
+

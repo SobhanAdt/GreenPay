@@ -1,0 +1,80 @@
+﻿@model IEnumerable<DataLayer.Services>
+
+@{
+    ViewBag.Title = "خدمات";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="top-wrapper parallax">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6">
+                <div class="single-title">
+                    <h3>خدمات</h3>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6">
+                <div class="breadcrumb-container">
+                    <ul class="breadcrumb alignleft">
+                        <li><a href="/">صفحه اصلی</a></li>
+                        <li class="active">@ViewBag.Title</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="single-content">
+    <div class="container ">
+        <div class="aligncenter">
+            <div class="row">
+                <div class="col-md-12 aligncenter">
+                    <div class="service2" data-effect="slide-right">
+                        <img src="/Content/GreenPay/Group-43.png" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="margin"></div>
+
+    <div class="grey">
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    
+
+                    <div class="col-md-8">
+                        <div class="margin"></div>
+                        <h1 class="color_light">@item.ServicTitle</h1>
+                        <h5>
+                            @item.ServicDescription
+                        </h5>
+                    </div>
+
+                }
+            </div>
+
+        </div>
+    </div>
+
+    <!--<div class="">
+        <div class="container">
+            <div class="margin"></div>
+            <div class="col-md-6" data-effect="slide-right">-->
+    @*<img class="img-responsive" src="images/tablet.png" />*@
+    <!--</div>
+            <div class="col-md-6">
+
+                <h1 class="color_light">مدیریت باشگاه مشتریان دیجیتال</h1>
+                <h5> انجام امور مربوط به تجارت الکترونیک از جمله خرید و فروش مشتریان، تخفیف گروهی، تولید و توسعه نرم افزارها اخذ نمایندگی، بازاریابی غیر هرمی و انجام فعالیت‌های مبتنی بر IT و ICT در راستای اهداف باشگاه مشتریان، ساماندهی مراکز تخفیف، صدور کارت های تخفیف برای باشگاه مشتریان، راه اندازی شبکه سراسری تخفیف در حوزه مختلف، اطلاع رسانی مراکز تخفیف به مردم، عقد قرارداد با فروشگاه ها و مراکز تجاری و خدماتی جهت دریافت تخفیف به مشتریان و باشگاه مشتریان موسسه </h5>
+            </div>
+            <div class="margin"></div>
+        </div>
+    </div>-->
+</div>
+
